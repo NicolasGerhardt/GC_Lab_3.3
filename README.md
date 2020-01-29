@@ -1,4 +1,4 @@
-# GC_Lab_3.3
+# Lab 3.2 Data Structures
 ## Task
 Write a program that will take in a word from the user and reverses the inputted word.
 
