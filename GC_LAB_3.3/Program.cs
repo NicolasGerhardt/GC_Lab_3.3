@@ -9,7 +9,7 @@ namespace GC_LAB_3._3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the backwardizer");
+            Console.WriteLine("Welcome to the Backwardizer");
             Console.WriteLine();
 
             do
@@ -68,7 +68,7 @@ namespace GC_LAB_3._3
             bool done;
             do
             {
-                Console.WriteLine("Write something below that you want reversed");
+                Console.WriteLine("Write something below that you want backwardized");
                 Console.Write(" > ");
                 string rawInput = Console.ReadLine();
                 string invalidChars = @"[^A-Za-z ]";
