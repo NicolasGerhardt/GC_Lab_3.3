@@ -71,12 +71,12 @@ namespace GC_LAB_3._3
                 Console.WriteLine("Write something below that you want reversed");
                 Console.Write(" > ");
                 string rawInput = Console.ReadLine();
-                string invalidChars = @"[^A-Za-z\' ]";
+                string invalidChars = @"[^A-Za-z ]";
                 
                 if (Regex.IsMatch(rawInput, invalidChars))
                 {
                     Console.WriteLine();
-                    Console.WriteLine("We only enter upper and lower case letters and spaces.");
+                    Console.WriteLine("We only accept spaces, upper case letters and lower case letters.");
                     Console.WriteLine();
                     done = false;
                 }
