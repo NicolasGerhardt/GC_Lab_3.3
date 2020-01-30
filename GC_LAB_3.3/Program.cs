@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace GC_LAB_3._3
@@ -54,7 +56,7 @@ namespace GC_LAB_3._3
                 }
                 else
                 {
-                    Console.WriteLine("not a valid responce");
+                    Console.WriteLine("Please press: Y for yes or N for no");
                     Console.WriteLine();
                 }
             } while (true);
@@ -63,20 +65,20 @@ namespace GC_LAB_3._3
         private static string GetValidatedUserInput()
         {
             string output = string.Empty;
-            var done = false;
-
+            bool done;
             do
             {
                 Console.WriteLine("Write something below that you want reversed");
                 Console.Write(" > ");
                 string rawInput = Console.ReadLine();
-                string invalidChars = @"[^A-Za-z ]";
+                string invalidChars = @"[^A-Za-z\' ]";
                 
                 if (Regex.IsMatch(rawInput, invalidChars))
                 {
                     Console.WriteLine();
                     Console.WriteLine("We only enter upper and lower case letters and spaces.");
                     Console.WriteLine();
+                    done = false;
                 }
                 else
                 {
@@ -90,12 +92,19 @@ namespace GC_LAB_3._3
             return output;
         }
 
-        private static string ReverseString(string s)
+        private static string ReverseString(string word)
         {
-            string output = string.Empty;
-            for (int i = s.Length - 1; i >= 0; i--)
+            Stack<char> stack = new Stack<char>();
+            foreach (char letter in word)
             {
-                output += s[i];
+                stack.Push(letter);
+            }
+
+            string output = string.Empty;
+
+            while(stack.Count > 0)
+            {
+                output += stack.Pop();
             }
 
             return output;
