@@ -9,26 +9,34 @@ namespace GC_LAB_3._3
     {
         static void Main(string[] args)
         {
+
+            ConsoleColor defaultConsoleColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine();
             Console.WriteLine("Welcome to the Backwardizer");
             Console.WriteLine();
+            Console.ForegroundColor = defaultConsoleColor;
 
             do
             {
-            string userInput = GetValidatedUserInput();
+                string userInput = GetValidatedUserInput();
 
-            string[] words = userInput.Split(" ");
-            string output = string.Empty;
+                string[] words = userInput.Split(" ");
+                string output = string.Empty;
 
-            for (int i = 0; i < words.Length; i++)
-            {
-                output += ReverseString(words[i]);
-                output += " ";
-            }
+                for (int i = 0; i < words.Length; i++)
+                {
+                    output += ReverseString(words[i]);
+                    output += " ";
+                }
 
-            Console.WriteLine("And now for your thing to be backwardized: ");
-            Console.WriteLine(output);
-            Console.WriteLine();
-            Console.WriteLine("Wow, Amazing!");
+                Console.WriteLine("And now for your thing you typed to be Backwardized: ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(output);
+                Console.ForegroundColor = defaultConsoleColor;
+                Console.WriteLine();
+                Console.WriteLine("Wow, Amazing!");
+                Console.WriteLine();
 
             } while (RunAgain());
 
@@ -40,7 +48,7 @@ namespace GC_LAB_3._3
             Console.WriteLine();
             do
             {
-                Console.Write("Do you want to backwardize more things? (y/n): ");
+                Console.Write("Do you want to Backwardize more things? (y/n): ");
                 var keyPressed = Console.ReadKey().KeyChar.ToString().ToLower();
                 Console.WriteLine();
 
@@ -68,11 +76,11 @@ namespace GC_LAB_3._3
             bool done;
             do
             {
-                Console.WriteLine("Write something below that you want backwardized");
+                Console.WriteLine("Write something below that you want Backwardized");
                 Console.Write(" > ");
                 string rawInput = Console.ReadLine();
                 string invalidChars = @"[^A-Za-z ]";
-                
+
                 if (Regex.IsMatch(rawInput, invalidChars))
                 {
                     Console.WriteLine();
@@ -102,7 +110,7 @@ namespace GC_LAB_3._3
 
             string output = string.Empty;
 
-            while(stack.Count > 0)
+            while (stack.Count > 0)
             {
                 output += stack.Pop();
             }
